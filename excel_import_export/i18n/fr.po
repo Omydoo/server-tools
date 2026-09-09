@@ -1229,3 +1229,135 @@ msgstr "ou"
 #: model_terms:ir.ui.view,arch_db:excel_import_export.import_xlsx_wizard
 msgid "⇒ Get Sample Import Template"
 msgstr "⇒ Récupérer un gabarit d'import d'exemple"
+
+#. module: excel_import_export
+msgid "* Choose: wizard show in user selection mode\n* Get: wizard show results from user action"
+msgstr "* Choisir : l'assistant s'affiche en mode saisie\n* Récupérer : l'assistant affiche le résultat de l'action"
+
+#. module: excel_import_export
+msgid "<b>Continue</b>: If not selected, start rolling with specified first row cells. If selected, continue from previous one2many field"
+msgstr "<b>Continuer</b> : si décoché, l'écriture démarre à la cellule indiquée. Si coché, elle poursuit à la suite du champ précédent"
+
+#. module: excel_import_export
+msgid "<b>Extend</b>: If selected, extend one row after one data row in order to preserve the sum line"
+msgstr "<b>Étendre</b> : si coché, insère une ligne vide après chaque ligne de données, afin de préserver la ligne de total"
+
+#. module: excel_import_export
+msgid "<b>Field Cond.</b>: Python code in <code>$</code><code>{...}</code> to manipulate field value, e.g., if field = product_id, <code>value</code> will represent product object, e.g., <code>$</code><code>{value and value.uom_id.name or \"\"}</code>"
+msgstr "<b>Condition du champ</b> : code Python dans <code>$</code><code>{...}</code> pour transformer la valeur du champ ; par exemple si le champ vaut product_id, <code>value</code> représente l'article, ex. <code>$</code><code>{value and value.uom_id.name or \"\"}</code>"
+
+#. module: excel_import_export
+msgid "<b>Field Cond.</b>: Python code in <code>$</code><code>{...}</code> value will represent data from excel cell, e.g., if A1 = 'ABC', <code>value</code> will represent 'ABC', e.g., <code>$</code><code>{value == \"ABC\" and \"X\ or \"Y\"}</code> thus can change from cell value to other value for import."
+msgstr "<b>Condition du champ</b> : code Python dans <code>$</code><code>{...}</code> ; <code>value</code> représente la donnée lue dans la cellule, ex. si A1 = 'ABC' alors <code>value</code> vaut 'ABC', ex. <code>$</code><code>{value == \"ABC\" and \"X\ or \"Y\"}</code> — ce qui permet de convertir la valeur de la cellule à l'import."
+
+#. module: excel_import_export
+msgid "<b>Field</b>: Field of the record, e.g., product_id.uom_id.name. They are orm compliant."
+msgstr "<b>Champ</b> : champ de l'enregistrement, ex. product_id.uom_id.name. Les chemins pointés de l'ORM sont acceptés."
+
+#. module: excel_import_export
+msgid "<b>No Delete</b>: By default, all one2many lines will be deleted before import. Select this, to avoid deletion"
+msgstr "<b>Ne pas supprimer</b> : par défaut, toutes les lignes sont supprimées avant l'import. Cochez pour les conserver"
+
+#. module: excel_import_export
+msgid "<b>Row Field</b>: Use _HEAD_ for the record itself, and one2many field (e.g., line_ids) for row data"
+msgstr "<b>Champ itéré</b> : _HEAD_ pour l'enregistrement lui-même, ou un champ one2many (ex. line_ids) pour les lignes"
+
+#. module: excel_import_export
+msgid "<b>Row Field</b>: Use _HEAD_ for the record itself, and one2many field for row data, e.g., order_line, line_ids<code>[max_row]</code> where <code>[max_row]</code> is optional number of rows to import"
+msgstr "<b>Champ itéré</b> : _HEAD_ pour l'enregistrement lui-même, ou un champ one2many pour les lignes, ex. order_line, line_ids<code>[max_row]</code> où <code>[max_row]</code> limite éventuellement le nombre de lignes importées"
+
+#. module: excel_import_export
+msgid "<b>Sheet</b>: Name (e.g., Sheet 1) or index (e.g., 1) of excel sheet to export data to"
+msgstr "<b>Onglet</b> : nom (ex. Feuil1) ou rang (ex. 1) de l'onglet du classeur où écrire les données"
+
+#. module: excel_import_export
+msgid "<b>Style w/Cond.</b>: Conditional style by python code in <code>#?...?</code>, e.g., apply style for specific product, <code>#?value.name == \"ABC\" and #{font=bold;fill=red} or None?</code>"
+msgstr "<b>Style conditionnel</b> : style appliqué par code Python dans <code>#?...?</code>, ex. pour un article donné, <code>#?value.name == \"ABC\" and #{font=bold;fill=red} or None?</code>"
+
+#. module: excel_import_export
+msgid "<b>Style</b>: Default style in <code>#{...}</code> that apply to each cell, e.g., <code>#{align=left;style=text}</code>. See module's <b>style.py</b> for available styles."
+msgstr "<b>Style</b> : style par défaut, écrit dans <code>#{...}</code>, appliqué à chaque cellule, ex. <code>#{align=left;style=text}</code>. Voir <b>style.py</b> du module pour les styles disponibles."
+
+#. module: excel_import_export
+msgid "<code>object</code>: record object or line object depends on <b>Row Field</b>"
+msgstr "<code>object</code> : l'enregistrement, ou la ligne selon le <b>champ itéré</b>"
+
+#. module: excel_import_export
+msgid "By default, all rows will be deleted before import.\nSelect No Delete, otherwise"
+msgstr "Par défaut, toutes les lignes sont supprimées avant l'import.\nCochez « Ne pas supprimer » pour les conserver"
+
+#. module: excel_import_export
+msgid "Call a function after successful import, i.e.,\n${object.post_import_do_something()}"
+msgstr "Appelle une fonction après un import réussi, par exemple\n${object.post_import_do_something()}"
+
+#. module: excel_import_export
+msgid "Error deleting data\n%s"
+msgstr "Erreur lors de la suppression des données\n%s"
+
+#. module: excel_import_export
+msgid "Error filling data into Excel sheets\n%s"
+msgstr "Erreur lors de l'écriture des données dans le classeur\n%s"
+
+#. module: excel_import_export
+msgid "Export Instruction is how to write data from an active data record to specified cells in excel sheet.\n                                  For example, an active record can be a sale order that user want to export.\n                                  The record itself will be mapped to the header part of excel sheet. The record can contain multiple one2many fields, which will be written as data lines.\n                                  You can look at following instruction as Excel Sheet(s), each with 1 header section (_HEAD_) and multiple row sections (one2many fields)."
+msgstr "Les instructions d'export décrivent comment écrire les données d'un enregistrement dans des cellules précises du classeur.\n                                  Par exemple, l'enregistrement peut être une commande de vente que l'on souhaite exporter.\n                                  L'enregistrement lui-même alimente la partie en-tête du classeur. Il peut contenir plusieurs champs one2many, qui seront écrits sous forme de lignes de données.\n                                  Lisez les instructions ci-dessous comme une liste d'onglets, chacun avec une section d'en-tête (_HEAD_) et plusieurs sections de lignes (champs one2many)."
+
+#. module: excel_import_export
+msgid "Following show very simple example of the dictionary construct.\n                                    Normally, this will be within templates.xml file within addons."
+msgstr "Voici un exemple très simple de dictionnaire d'instructions.\n                                    En pratique, il se place dans le fichier templates.xml du module."
+
+#. module: excel_import_export
+msgid "For code block <code>$</code><code>{...}</code> and <code>#?...?</code>, following object are available,"
+msgstr "Dans les blocs de code <code>$</code><code>{...}</code> et <code>#?...?</code>, les objets suivants sont disponibles :"
+
+#. module: excel_import_export
+msgid "For code block <code>$</code><code>{...}</code>, following object are available,"
+msgstr "Dans les blocs de code <code>$</code><code>{...}</code>, les objets suivants sont disponibles :"
+
+#. module: excel_import_export
+msgid "IllegalCharacterError\nSome exporting data contain special character\n%s"
+msgstr "IllegalCharacterError\nCertaines données exportées contiennent un caractère spécial\n%s"
+
+#. module: excel_import_export
+msgid "Import Instruction is how to get data from excel sheet and write them to an active record.\n                                  For example, user create a sales order document, and want to import order lines from excel.\n                                  In reverse direction to exporting, data from excel's cells will be mapped to record fields during import.\n                                  Cells can be mapped to record in header section (_HEAD_) and data table can be mapped to row section (one2many field, begins from specifed cells."
+msgstr "Les instructions d'import décrivent comment lire les données d'un classeur pour alimenter un enregistrement.\n                                  Par exemple, un utilisateur crée une commande de vente et souhaite en importer les lignes depuis un classeur.\n                                  À l'inverse de l'export, les cellules du classeur alimentent les champs de l'enregistrement.\n                                  Des cellules peuvent alimenter la section d'en-tête (_HEAD_) et un tableau de données peut alimenter une section de lignes (champ one2many, à partir des cellules indiquées)."
+
+#. module: excel_import_export
+msgid "In header section part, map data fields (e.g., number, partner_id.name) into cells (e.g., B1, B2)."
+msgstr "Dans la section d'en-tête, associez des champs (ex. number, partner_id.name) à des cellules (ex. B1, B2)."
+
+#. module: excel_import_export
+msgid "In header section, map cells (e.g., B1, B2) into data fields (e.g., number, partner_id)."
+msgstr "Dans la section d'en-tête, associez des cellules (ex. B1, B2) à des champs (ex. number, partner_id)."
+
+#. module: excel_import_export
+msgid "In row section, data list will be rolled out from one2many row field (e.g., order_line), and map data field (i.e., product_id.name, uom_id.name, qty) into the first row cells to start rolling (e.g., A6, B6, C6)."
+msgstr "Dans une section de lignes, la liste est déroulée depuis un champ one2many (ex. order_line) : associez chaque champ (ex. product_id.name, uom_id.name, qty) à la première cellule de la colonne (ex. A6, B6, C6)."
+
+#. module: excel_import_export
+msgid "In row section, data table from excel can be imported to one2many row field (e.g., order_line) by mapping cells on first row onwards (e.g., A6, B6, C6) to fields (e.g., product_id, uom_id, qty)"
+msgstr "Dans une section de lignes, un tableau du classeur peut alimenter un champ one2many (ex. order_line) en associant les cellules de la première ligne (ex. A6, B6, C6) à des champs (ex. product_id, uom_id, qty)"
+
+#. module: excel_import_export
+msgid "Key Error\n%s"
+msgstr "Erreur de clé\n%s"
+
+#. module: excel_import_export
+msgid "Multiple template of same model, can belong to same group,\nresult in multiple template selection"
+msgstr "Plusieurs gabarits du même modèle peuvent appartenir au même groupe,\nce qui donne un choix entre plusieurs gabarits"
+
+#. module: excel_import_export
+msgid "Post import operation error\n%s"
+msgstr "Erreur lors du traitement après import\n%s"
+
+#. module: excel_import_export
+msgid "Template with CSV Quoting = False, data must not contain the same char as delimiter -> \"%s\"
+msgstr "Gabarit avec « Guillemets CSV » décoché : les données ne doivent pas contenir le même caractère que le séparateur -> \"%s\"
+
+#. module: excel_import_export
+msgid "The value for the '%(field)s' field is expected to be in cell %(cell_position)s, but no column exists for that cell in the Excel sheet. Please check your Excel file."
+msgstr "La valeur du champ « %(field)s » est attendue en cellule %(cell_position)s, mais aucune colonne ne correspond à cette cellule dans le classeur. Vérifiez votre fichier Excel."
+
+#. module: excel_import_export
+msgid "This is the computed instruction based on tab Import/Export,\nto be used by xlsx import/export engine"
+msgstr "Instructions calculées à partir de l'onglet Import/Export,\nutilisées par le moteur d'import/export xlsx"
